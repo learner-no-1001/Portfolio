@@ -568,6 +568,8 @@ button:hover {
     padding: 20px;
     border-radius: 10px;
     background-color: #fff;
+    margin: 10px;
+    
 }
 
 .project-card img {
@@ -702,3 +704,4 @@ button:hover {
 .site-footer p {
     margin: 0; /* removes default paragraph margin */
 }
+
