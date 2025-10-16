@@ -69,6 +69,36 @@
         $(this).addClass('filter-active');
         portfolioIsotope.isotope({filter: $(this).data('filter')});
     });
+
+    
+    // ------------------------------
+    // Contact Form Submission
+    // ------------------------------
+    $('#contactForm').on('submit', function(e) {
+        e.preventDefault(); // stop default form submit
+
+        var form = e.target;
+        var formData = new FormData(form);
+
+        var url = 'https://formsubmit.co/el/nujila';
+
+        fetch(url, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => response.json())
+        .then(data => {
+            $('#status').text('✅ Message sent successfully!');
+            form.reset();
+        })
+        .catch(error => {
+            console.error(error);
+            $('#status').text('❌ Error sending message!');
+        });
+    });
+    
     
 })(jQuery);
+
 
